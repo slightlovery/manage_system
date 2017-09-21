@@ -9,12 +9,12 @@ router.use((req, res, next)=>{
     }else{
         next();
     }
-});
+});        //admin下的全局拦截，判断用户是否已登录
 
-//
 router.get('/login', (req, res)=>{
     res.render('admin/login.ejs', {});
 });
+
 router.post('/login', (req, res)=>{
     var username=req.body.username;
     var password=common.md5(req.body.password+common.MD5_SUFFIX);
@@ -37,14 +37,66 @@ router.post('/login', (req, res)=>{
             }
         }
     });
-});
+});    //接收用户登录
 
 router.get('/', (req, res)=>{
     res.render('admin/index.ejs', {});
-});
+});          //主页
 
 router.get('/banners', (req, res)=>{
-    res.render('admin/banners.ejs', {})
+    res.render('admin/banners.ejs', {});
+});
+
+router.post('/banners', (req, res)=>{
+    //
+});
+
+router.get('/blog', (req, res)=>{
+    res.render('admin/blog.ejs', {});
+});
+
+router.post('/blog', (req, res)=>{
+    //
+});
+
+router.get('/contact', (req, res)=>{
+    res.render('admin/contact.ejs', {});
+});
+
+router.post('/contact', (req, res)=>{
+    //
+});
+
+router.get('/intro', (req, res)=>{
+    res.render('admin/intro.ejs', {});
+});
+
+router.post('/intro', (req, res)=>{
+    //
+});
+
+router.get('/custom', (req, res)=>{
+    res.render('admin/custom.ejs', {});
+});
+
+router.post('/custom', (req, res)=>{
+    //
+});
+
+router.get('/msg', (req, res)=>{
+    res.render('admin/msg.ejs', {});
+});
+
+router.post('/msg', (req, res)=>{
+    //
+});
+
+router.get('/news', (req, res)=>{
+    res.render('admin/news.ejs', {});
+});
+
+router.post('/news', (req, res)=>{
+    //
 });
 
 module.exports = router;
