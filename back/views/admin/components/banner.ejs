@@ -1,5 +1,108 @@
 <div class="content_in">
-    <div class="banner">
+    <div class="lab">
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h3 class="panel-title">新增标题</h3>
+            </div>
+            <div class="panel-body">
+                <form action="/admin/banners" method="post">
+                    <div class="form-group">
+                        <label for="title">标题:</label>
+                        <input type="text" class="form-control" name="title" placeholder="Title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="description">描述:</label>
+                        <textarea class="form-control" maxlength="300" name="description" placeholder="Description"
+                                  required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="href">链接:</label>
+                        <input type="text" class="form-control" name="href" placeholder="href" required>
+                    </div>
+                    <button type="submit" class="btn btn-success">确定</button>
+                    <button type="reset" class="btn btn-info">重置</button>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">已有数据</h3>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th style="width: 10%; text-align: center">编号</th>
+                            <th style="width: 10%; text-align: center">标题</th>
+                            <th style="width: 45%; text-align: center">描述</th>
+                            <th style="width: 20%; text-align: center">链接</th>
+                            <th style="width: 15%; text-align: center">操作</th>
+                        </tr>
+                        </thead>
+                        <tbody>
 
+                        <% for(var i = 0 ; i < result.length; i++){ %>
+                        <tr>
+                            <th style="text-align: center"><%= i+1 %></th>
+                            <th style="text-align: center"><%= result[i].title %></th>
+                            <th><%= result[i].description %></th>
+                            <th style="text-align: center"><%= result[i].href %></th>
+                            <th style="text-align: center">
+                                <button type="button" onclick="getOriData(<%= result[i].ID %>)"
+                                        data-toggle="modal" data-target="#myModal" class="btn btn-success">修改
+                                </button>
+                                <!--onclick="window.location.href=('?act=mod&id=<%= result[i].ID %>') " -->
+                                <button onclick="
+                                        var msg = '确定删除吗？';
+                                        if(confirm(msg)==true)
+                                        {
+                                        window.location.href=('?act=del&id=<%= result[i].ID %>');
+                                        return true;
+                                        }else{
+                                        return false;
+                                        }" class="btn btn-danger">删除
+                                </button>
+                            </th>
+                        </tr>
+                        <% } %>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">修改数据</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/admin/banners" method="post">
+                            <div class="form-group">
+                                <input type="hidden" id="change_ID" name="ID"/>
+                                <label for="title">标题:</label>
+                                <input id="change_title" type="text" class="form-control" name="title" placeholder="Title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">描述:</label>
+                                <textarea id="change_des" class="form-control" maxlength="300" name="description" placeholder="Description"
+                                  required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="href">链接:</label>
+                                <input id="change_href" type="text" class="form-control" name="href" placeholder="href" required>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <button type="submit" class="btn btn-primary">保存</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

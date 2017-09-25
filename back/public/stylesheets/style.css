@@ -3,14 +3,21 @@ body,div,span,a{
   margin:0;
 }
 
-html,body{
+html{
   width: 100%;
   height: 100%;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
 }
 
 .page {
   width: 100%;
   height: auto;
+
 }
 
 .login{
@@ -142,9 +149,10 @@ html,body{
 
 .top {
   height: 100px;
-  background-color: #cccccc;
+  background-color: #333;
   overflow: hidden;
   margin-bottom: 10px;
+    color: #ffffff;
 }
 
 .banner{
@@ -153,26 +161,68 @@ html,body{
   overflow: hidden;
 }
 
+.left{
+  width: 100%;
+    overflow: hidden;
+  border: 2px solid #000000;
+    border-radius: 5px;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+.left a{
+  font-size: 16px;
+}
 
 .right{
-  width: 1000px;
-  height: 600px;
-  border: 1px solid #000000;
+  width: 100%;
+  border: 2px solid #000000;
+    border-radius: 5px;
   box-shadow: 10px 10px 5px #888888;
 }
 
 .content_in{
   overflow: hidden;
+  width: 103%;
+  height: 100%;
+    margin-left: -15px;
+}
+
+.content_in .index{
   width: 100%;
   height: 100%;
 }
 
-.content_in .index{
-  margin-left: 30%;
-  margin-top: 30%;
+.content_in .index img{
+  width: 100%;
+  height: 100%;
 }
 
-.content_in .banner{
-
+.content_in .lab{
+  width: 900px;
+  margin-left: 20px;
+  margin-top: 25px;
+  overflow: hidden;
 }
 
+.weixin{
+    margin-top: 20px;
+    width: 160px;
+    height: 160px;
+}
+
+.weixin img{
+    width: 100%;
+    height: 100%;
+}
+
+.footer{
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media screen and (max-width: 1182px){
+    .weixin{
+        width: 130px;
+        height: 130px;
+    }
+}

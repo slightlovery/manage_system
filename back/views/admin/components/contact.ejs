@@ -1,5 +1,79 @@
 <div class="content_in">
-    <div class="banner">
-
+    <div class="lab">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">修改信息</h3>
+            </div>
+            <div class="panel-body">
+                <form action="" method="post">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="title">地址:</label>
+                                <input type="text" class="form-control" name="title" placeholder="Address" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="title">手机号码:</label>
+                                <input type="text" class="form-control" name="title" placeholder="Phone number" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="title">QQ:</label>
+                                <input type="text" class="form-control" name="title" placeholder="QQ" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="title">邮箱:</label>
+                                <input type="text" class="form-control" name="title" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="title">微博:</label>
+                                <input type="text" class="form-control" name="title" placeholder="Weibo" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="title">微信:</label>
+                                <input type="text" class="form-control" name="title" placeholder="WeChat" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">保存</button>
+                        <button type="reset" class="btn btn-danger">取消</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h3 class="panel-title">已有数据</h3>
+            </div>
+            <div class="panel-body">
+                <p>
+                    <label>微博:</label>
+                    <span class="panel-success"><%= result.weibo%></span>
+                </p>
+                <p>
+                    <label>QQ:</label>
+                    <span class="panel-success"><%= result.QQ%></span>
+                </p>
+                <p>
+                    <label>微信:</label>
+                    <span class="panel-success"><%= result.wechat%></span>
+                </p>
+                <p>
+                    <label>手机号码:</label>
+                    <span class="panel-success"><%= result.phone%></span>
+                </p>
+                <p>
+                    <label>邮箱:</label>
+                    <span class="panel-success"><%= result.email%></span>
+                </p>
+                <p>
+                    <label>地址:</label>
+                    <span class="panel-success"><%= result.address%></span>
+                </p>
+            </div>
+        </div>
     </div>
+
 </div>

@@ -9,7 +9,7 @@ var multer = require('multer');
 var multerObj = multer({dest:'./public/upload'});
 
 var web = require('./routes/web');
-var admin = require('./routes/admin');
+var admin = require('./routes/admin/index');
 
 var app = express();
 
@@ -36,6 +36,11 @@ app.use(multerObj.any());
     maxAge: 20*60*1000  //20min
   }));
 })();
+
+app.use((req, res, next)=>{
+  res.locals.session = req.session;
+  next();
+});
 
 app.use(express.static(path.join(__dirname, 'public')));
 
