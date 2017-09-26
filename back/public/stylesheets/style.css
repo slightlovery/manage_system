@@ -220,6 +220,10 @@ body{
     text-align: center;
 }
 
+.table tbody tr th{
+  vertical-align: middle !important;
+}
+
 @media screen and (max-width: 1182px){
     .weixin{
         width: 130px;
